@@ -129,19 +129,36 @@ body{
 
 .chat-footer{
   position:absolute;
-  paddding:15px 22px 20px;
+  padding:15px 22px 20px;
   bottom:0;
   width:100%;
   background: #fff;
-  margin-bottom: 10px;
 }
 
 .chat-footer .chat-form{
   display:flex;
   align-items:center;
+  border-radius:32px;
   background:#fff;
   outline:1px solid #CCCCE5;
 }
 
-.chat-form .message-inpt
+.chat-form .message-input{
+  border:none;
+  outline:none;
+  background: none;
+  height: 47px;
+  padding: 0 17px;
+  font-size: 0.90rem;
+  width: 100%;
+}
+
+.chat-form button{
+  height:35px;
+  width:35px;
+  color:#fff;
+  border:none;
+  outline:none;
+  cursor:pointer
+}
 

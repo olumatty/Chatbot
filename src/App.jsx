@@ -36,7 +36,7 @@ const App = () => {
           <div className="chat-footer">
             <form action='#' className='chat-form'>
               <input type='text' placeholder='Message...' className='message-input' required/>
-              <button className=''><LuSendHorizontal/></button>
+              <button className='send-btn'><LuSendHorizontal/></button>
             </form>
           </div>
       </div>
