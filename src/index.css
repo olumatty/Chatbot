@@ -13,13 +13,23 @@ body{
   align-items:center;
   justify-content: center;
   min-height:100vh;
+  background:linear-gradient(#F4F0FF, #DACDFF);
 }
-
-
-
-
 
 .Icon{
   height: 20px;
   width:20px;
+}
+.chatbot-popup{
+  width: 420px;
+  overflow:hidden;
+  background:#fff;
+  border-radius: 16px;
+  box-shadow: 0 0 128px 0 rgba(0,0,0,0.1), 0 32px 64px -48px rgba(0,0,0,0.5);
+}
+
+.chatbot-popup.chat-header{
+  display:flex;
+  padding:15px 22px;
+  
 }
