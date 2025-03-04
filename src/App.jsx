@@ -11,7 +11,7 @@ const App = () => {
         <div className="chatbot-header">
           <div className="header-info">
             <Chatboticon/>
-            <h2 className="lgo-text">MyChatbot</h2>
+            <h2 className="logo-text">MyChatbot</h2>
           </div>
           <button className=''><IoIosArrowDown /></button>
         </div>
@@ -19,7 +19,7 @@ const App = () => {
         {/*Chatbot Body */}
           <div className="chatbot-body">
             <div className="message ot-message">
-              <chatbotIcon/>
+              <Chatboticon/>
               <p className="message-text">
                 Hey there 👋 <br/> How can I help you today ?
               </p>
