@@ -1,6 +1,7 @@
 import React from 'react'
 import Chatboticon from './components/Chatboticon'
 import { IoIosArrowDown } from "react-icons/io";
+import { LuSendHorizontal } from "react-icons/lu";
 
 const App = () => {
   return (
@@ -16,7 +17,28 @@ const App = () => {
         </div>
 
         {/*Chatbot Body */}
+          <div className="chatbot-body">
+            <div className="message ot-message">
+              <chatbotIcon/>
+              <p className="message-text">
+                Hey there 👋 <br/> How can I help you today ?
+              </p>
+            </div>
 
+            <div className="message user-message">
+              <p className="message-text">
+                lorem ipsum dolor, stjefehjjh hfhfj.
+              </p>
+            </div>
+          </div>
+
+          {/*Chatbot Footer */}
+          <div className="chat-Footer">
+            <form action='#' className='chat-form'>
+              <input type='text' placeholder='Message...' className='message-input' required/>
+              <button className=''><LuSendHorizontal/></button>
+            </form>
+          </div>
       </div>
     </div>
   )
