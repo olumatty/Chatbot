@@ -11,14 +11,14 @@ const App = () => {
         <div className="chatbot-header">
           <div className="header-info">
             <Chatboticon/>
-            <h2 className="logo-text">MyChatbot</h2>
+            <h2 className="logo-text">myChatbot</h2>
           </div>
           <button className=''><IoIosArrowDown /></button>
         </div>
 
         {/*Chatbot Body */}
           <div className="chatbot-body">
-            <div className="message ot-message">
+            <div className="message bot-message">
               <Chatboticon/>
               <p className="message-text">
                 Hey there 👋 <br/> How can I help you today ?
@@ -33,7 +33,7 @@ const App = () => {
           </div>
 
           {/*Chatbot Footer */}
-          <div className="chat-Footer">
+          <div className="chat-footer">
             <form action='#' className='chat-form'>
               <input type='text' placeholder='Message...' className='message-input' required/>
               <button className=''><LuSendHorizontal/></button>

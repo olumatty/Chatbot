@@ -1,10 +1,10 @@
 import React from 'react'
-import icon from "../assets/chatbot-svgrepo-com.svg"
+import { FaRobot } from "react-icons/fa6";
 
 const Chatboticon = () => {
   return (
     <div>
-      <img src ={icon} sizes={10} alt='icon' className='Icon' />
+      <FaRobot className='icon'/>
     </div>
   )
 }
