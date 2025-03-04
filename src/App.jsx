@@ -2,6 +2,7 @@ import React from 'react'
 import Chatboticon from './components/Chatboticon'
 import { IoIosArrowDown } from "react-icons/io";
 import { LuSendHorizontal } from "react-icons/lu";
+import ChatForm from './components/ChatForm';
 
 const App = () => {
   return (
@@ -34,10 +35,7 @@ const App = () => {
 
           {/*Chatbot Footer */}
           <div className="chat-footer">
-            <form action='#' className='chat-form'>
-              <input type='text' placeholder='Message...' className='message-input' required/>
-              <button className='send-btn'><LuSendHorizontal/></button>
-            </form>
+            <ChatForm/>
           </div>
       </div>
     </div>
