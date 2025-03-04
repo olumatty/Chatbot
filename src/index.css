@@ -28,8 +28,44 @@ body{
   box-shadow: 0 0 128px 0 rgba(0,0,0,0.1), 0 32px 64px -48px rgba(0,0,0,0.5);
 }
 
-.chatbot-popup.chat-header{
+.chatbot-popup .chatbot-header{
   display:flex;
   padding:15px 22px;
-  
+  justify-content:space-between;
+  align-items:center;
+  background:#6D4FC2;
+}
+
+.chatbot-header .header-info{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.header-info img{
+  height:30px;
+  width:30px;
+  padding:6px;
+  flex-shrink:0;
+  fill:#6D4FC2;
+  background:#fff;
+  border-radius: 50%
+}
+
+.header-info .logo-text{
+  color:#fff;
+  font-size:1.30rem;
+  font-weight:600;
+}
+
+.chatbot-header button{
+  height:30px;
+  width:30px;
+  border:none;
+  outlineL:none;
+  color:#fff;
+  font-size: 1.5rem;
+  padding-top:2px;
+  margin-right :-10px;
+  background:#593bab;
 }
