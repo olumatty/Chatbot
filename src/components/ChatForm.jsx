@@ -1,23 +1,26 @@
-import React, { useRef } from 'react'
+import { useRef } from 'react'
+import { LuSendHorizontal } from "react-icons/lu";
 
-const ChatForm = () => {
+const ChatForm = ({setChatHistory}) => {
     const inputRef = useRef();
 
-    const handleFormSubmit =(e) => {
+    const handleFormSubmit = (e) => {
         e.preventDefault();
         const userMessage = inputRef.current.value.trim();
-
+        if(!userMessage) return;
+        inputRef.current.value = "";
+        
+        setChatHistory((history) => [...history, {role: "user", text: userMessage} ])
         console.log(userMessage)
     }
 
   return (
-    <div>
       <form action='#' className='chat-form' onSubmit={handleFormSubmit}>
-        <input type='text' useRef={inputRef} placeholder='Message...' className='message-input' required/>
+        <input type='text' ref={inputRef} placeholder='Message...' className='message-input' required/>
         <button className='send-btn'><LuSendHorizontal/></button>
       </form>
-    </div>
   )
 }
 
 export default ChatForm
+ 
