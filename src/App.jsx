@@ -12,8 +12,8 @@ const App = () => {
 
   const generateBotResponse = async (history) => {
 
-    const updateHistory= (text) => {
-      setChatHistory(prev => [...prev.filter(msg => msg.text !== ""), {role: "model", text}])
+    const updateHistory= (text, isError=false) => {
+      setChatHistory(prev => [...prev.filter(msg => msg.text !== ""), {role: "model", text, isError}])
     }
     history = history.map(({role, text}) => ({role, parts: [{text}]}))
 
@@ -32,7 +32,7 @@ const App = () => {
       const apiResponseText = data.candidates[0].content.parts[0].text.replace(/\*\*(.*?)\*\*/g,"$1").trim()
       updateHistory(apiResponseText)
     } catch(error){
-      console.log(error)
+      updateHistory(error.message, true)
     }
   };
 
@@ -42,8 +42,8 @@ const App = () => {
   
 
   return (
-    <div className='container'>
-      <button id="chatbot-toggler" onClick={() =>setShowChatbot((prev) => !prev)}>
+    <div className={`container ${showChatBot ? "show-chatbot": " "}`}>
+      <button id="chatbot-toggler" onClick={() => setShowChatBot((prev) => !prev)}>
         <span className='material-symbols-rounded'>mode_comment</span>
         <span className='material-symbols-rounded'>close</span>
       </button>
@@ -54,8 +54,8 @@ const App = () => {
             <Chatboticon/>
             <h2 className="logo-text">myChatbot</h2>
           </div>
-          <button> <IoIosArrowDown /></button>
-        </div>
+          <button onClick={() => setShowChatBot((prev) => !prev)}> <IoIosArrowDown /></button>
+        </div> 
 
         {/*Chatbot Body */}
           <div ref={chatBodyRef} className="chatbot-body">
