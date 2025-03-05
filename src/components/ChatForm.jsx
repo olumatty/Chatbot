@@ -11,7 +11,10 @@ const ChatForm = ({setChatHistory}) => {
         inputRef.current.value = "";
         
         setChatHistory((history) => [...history, {role: "user", text: userMessage} ])
-        console.log(userMessage)
+
+
+        setTimeout(() => setChatHistory((history) => [...history, {role: "model", text:"Thinking..."}]), 600);
+        
     }
 
   return (

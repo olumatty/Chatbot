@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Chatboticon from './components/Chatboticon'
 import { IoIosArrowDown } from "react-icons/io";
 import ChatForm from './components/ChatForm';
+import ChatMessage from './components/ChatMessage';
 
 const App = () => {
   const[chatHistory, setChatHistory] = useState([]);
@@ -15,7 +16,7 @@ const App = () => {
             <Chatboticon/>
             <h2 className="logo-text">myChatbot</h2>
           </div>
-          <button className=''><IoIosArrowDown /></button>
+          <button> <IoIosArrowDown /></button>
         </div>
 
         {/*Chatbot Body */}
@@ -27,11 +28,11 @@ const App = () => {
               </p>
             </div>
 
-            <div className="message user-message">
-              <p className="message-text">
-                lorem ipsum dolor, stjefehjjh hfhfj.
-              </p>
-            </div>
+            {chatHistory.map((chat, index) => (
+              <ChatMessage key ={index} chat={chat}/>
+            ))}
+            
+            
           </div>
 
           {/*Chatbot Footer */}
