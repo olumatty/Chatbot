@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState,useRef } from 'react'
 import Chatboticon from './components/Chatboticon'
 import { IoIosArrowDown } from "react-icons/io";
 import ChatForm from './components/ChatForm';
@@ -7,11 +7,37 @@ import ChatMessage from './components/ChatMessage';
 const App = () => {
 
   const[chatHistory, setChatHistory] = useState([]);
+  const chatBodyRef = useRef();
 
   const generateBotResponse = async (history) => {
 
-    
-  }
+    const updateHistory= (text) => {
+      setChatHistory(prev => [...prev.filter(msg => msg.text !== ""), {role: "model", text}])
+    }
+    history = history.map(({role, text}) => ({role, parts: [{text}]}))
+
+    const requestOptions ={
+      method :"POST",
+      headers : {"Content-Type": "application/json"},
+      body: JSON.stringify({contents:history})
+    };
+
+    try{
+      const response = await fetch(import.meta.env.VITE_API_URL, requestOptions);
+      const data = await response.json();
+
+      if(!response.ok) throw new Error (data.error.message || "something went wrong" )
+
+      const apiResponseText = data.candidates[0].content.parts[0].text.replace(/\*\*(.*?)\*\*/g,"$1").trim()
+      updateHistory(apiResponseText)
+    } catch(error){
+      console.log(error)
+    }
+  };
+
+  useEffect(()=> {
+    chatBodyRef.current.scrollTo({top: chatBodyRef.current.scrollHeight, behavior :"smooth"})
+  }, [chatHistory])
   
 
   return (
@@ -27,7 +53,7 @@ const App = () => {
         </div>
 
         {/*Chatbot Body */}
-          <div className="chatbot-body">
+          <div ref={chatBodyRef} className="chatbot-body">
             <div className="message bot-message">
               <Chatboticon/>
               <p className="message-text">
