@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import { LuSendHorizontal } from "react-icons/lu";
 
-const ChatForm = ({setChatHistory}) => {
+const ChatForm = ({chatHistory, setChatHistory, generateBotResponse}) => {
     const inputRef = useRef();
 
     const handleFormSubmit = (e) => {
@@ -13,7 +13,12 @@ const ChatForm = ({setChatHistory}) => {
         setChatHistory((history) => [...history, {role: "user", text: userMessage} ])
 
 
-        setTimeout(() => setChatHistory((history) => [...history, {role: "model", text:"Thinking..."}]), 600);
+        setTimeout(() => {
+            setChatHistory((history) => [...history, {role: "model", text:"Thinking..."}]);
+        
+            generateBotResponse([...chatHistory, {role:"user", text: userMessage}]);
+        
+    },600);
         
     }
 
@@ -26,4 +31,4 @@ const ChatForm = ({setChatHistory}) => {
 }
 
 export default ChatForm
- 
+ ;
